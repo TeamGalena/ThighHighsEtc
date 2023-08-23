@@ -33,9 +33,8 @@ public class THECommon {
         return builder.build();
     }
 
-    public static <T> Map<DyeColor, T> colored(String id, NonNullBiFunction<AbstractRegistrate<?>, DyeColor, T> factory) {
-        var REGISTRATE = Services.PLATFORM.getRegistrate();
-        return mapColors(color -> factory.apply(REGISTRATE.object(prefixWith(id, color)), color));
+    public static <T> Map<DyeColor, T> colored(AbstractRegistrate<?> registrate, String id, NonNullBiFunction<AbstractRegistrate<?>, DyeColor, T> factory) {
+        return mapColors(color -> factory.apply(registrate.object(prefixWith(id, color)), color));
     }
 
 }

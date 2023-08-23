@@ -1,0 +1,36 @@
+{
+  "criteria": {
+    "critierion": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "thigh_highs_etc:thigh_highs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:wool",
+    "description": {
+      "translate": "advancements.thigh_highs_etc.equipped_thigh_highs.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "thigh_highs_etc:pink_thigh_highs"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.thigh_highs_etc.equipped_thigh_highs.title"
+    }
+  },
+  "requirements": [
+    [
+      "critierion"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

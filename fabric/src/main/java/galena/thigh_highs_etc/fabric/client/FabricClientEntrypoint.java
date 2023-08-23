@@ -12,8 +12,9 @@ public class FabricClientEntrypoint implements ClientModInitializer {
     public void onInitializeClient() {
         EntityModelLayerRegistry.registerModelLayer(ThighHighsLayer.LAYER_LOCATION, ThighHighsLayer::createLayerDefinition);
 
-        THEItems.THIGH_HIGHS.values().forEach(it ->
-            ArmorRenderer.register(new ThighHighsRenderer(), it.get())
+        ArmorRenderer.register(new ThighHighsRenderer(), THEItems.TRADER_THIGH_HIGHS.get());
+        THEItems.COLORED_THIGH_HIGHS.values().forEach(it ->
+                ArmorRenderer.register(new ThighHighsRenderer(), it.get())
         );
     }
 

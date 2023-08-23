@@ -1,4 +1,6 @@
 {
+  "advancement.thigh_highs_etc.equipped_thigh_highs.description": "Equip a pair of cosy thigh highs",
+  "advancement.thigh_highs_etc.equipped_thigh_highs.title": "Warm and Fuzzy",
   "item.thigh_highs_etc.black_thigh_highs": "Black Thigh Highs",
   "item.thigh_highs_etc.blue_thigh_highs": "Blue Thigh Highs",
   "item.thigh_highs_etc.brown_thigh_highs": "Brown Thigh Highs",
@@ -13,6 +15,7 @@
   "item.thigh_highs_etc.pink_thigh_highs": "Pink Thigh Highs",
   "item.thigh_highs_etc.purple_thigh_highs": "Purple Thigh Highs",
   "item.thigh_highs_etc.red_thigh_highs": "Red Thigh Highs",
+  "item.thigh_highs_etc.trader_thigh_highs": "Trader Thigh Highs",
   "item.thigh_highs_etc.white_thigh_highs": "White Thigh Highs",
   "item.thigh_highs_etc.yellow_thigh_highs": "Yellow Thigh Highs"
 }
