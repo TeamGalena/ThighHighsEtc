@@ -1,3 +1,5 @@
+import com.possible_triangle.gradle.features.publishing.UploadExtension
+
 val mc_version: String by extra
 val registrate_fabric_version: String by extra
 val jei_version: String by extra
@@ -25,5 +27,11 @@ sourceSets.main {
     resources.srcDir(project(":common").file("src/generated/resources"))
 }
 
-uploadToCurseforge()
-uploadToModrinth()
+fun configureDependencies(it: UploadExtension) {
+    it.dependencies {
+        required("etcetera")
+    }
+}
+
+uploadToCurseforge(::configureDependencies)
+uploadToModrinth(::configureDependencies)

@@ -1,3 +1,5 @@
+import com.possible_triangle.gradle.features.publishing.UploadExtension
+
 val mc_version: String by extra
 val registrate_forge_version: String by extra
 val jei_version: String by extra
@@ -16,5 +18,11 @@ dependencies {
     }
 }
 
-uploadToCurseforge()
-uploadToModrinth()
+fun configureDependencies(it: UploadExtension) {
+    it.dependencies {
+        required("etcetera")
+    }
+}
+
+uploadToCurseforge(::configureDependencies)
+uploadToModrinth(::configureDependencies)
