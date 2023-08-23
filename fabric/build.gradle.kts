@@ -18,5 +18,12 @@ dependencies {
     }
 }
 
+// This should not be necessary and results in a "duplicate content roots" warning by IDEA,
+// but without it, fabric does not load the common resources even though it should
+sourceSets.main {
+    resources.srcDir(project(":common").file("src/main/resources"))
+    resources.srcDir(project(":common").file("src/generated/resources"))
+}
+
 uploadToCurseforge()
 uploadToModrinth()

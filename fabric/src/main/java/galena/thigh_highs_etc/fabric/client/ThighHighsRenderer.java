@@ -25,7 +25,10 @@ public class ThighHighsRenderer implements ArmorRenderer {
     public void render(PoseStack matrices, MultiBufferSource vertexConsumers, ItemStack stack, LivingEntity entity, EquipmentSlot slot, int light, HumanoidModel<LivingEntity> contextModel) {
         var model = this.model.get();
         var texture = ThighHighsLayer.getTexture(stack);
-        contextModel.copyPropertiesTo(model);
+
+        model.copyPropertiesFrom(contextModel);
+        model.prepareMobModel(entity, 1f, 1f, 1f);
+
         ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, texture);
     }
 

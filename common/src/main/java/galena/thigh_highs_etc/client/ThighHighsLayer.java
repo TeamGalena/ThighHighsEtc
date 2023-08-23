@@ -40,7 +40,7 @@ public class ThighHighsLayer<T extends LivingEntity, M extends EntityModel<T>> e
         MeshDefinition meshDefinition = new MeshDefinition();
         PartDefinition partDefinition = meshDefinition.getRoot();
 
-        var cubeDeformation = CubeDeformation.NONE;
+        var cubeDeformation = new CubeDeformation(0.1F);
         partDefinition.addOrReplaceChild("waist", CubeListBuilder.create().texOffs(16, 16).addBox(-4.0F, 0.0F, -2.0F, 8.0F, 12.0F, 4.0F, cubeDeformation), PartPose.offset(0.0F, 0.0F, 0.0F));
         partDefinition.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(48, 16).mirror().addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, cubeDeformation).mirror(false), PartPose.offset(1.9F, 12.0F, 0.0F));
         partDefinition.addOrReplaceChild("right_leg", CubeListBuilder.create().texOffs(0, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, cubeDeformation), PartPose.offset(-1.9F, 12.0F, 0.0F));

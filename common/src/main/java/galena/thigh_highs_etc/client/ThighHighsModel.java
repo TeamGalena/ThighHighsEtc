@@ -1,6 +1,7 @@
 package galena.thigh_highs_etc.client;
 
 import net.minecraft.client.model.AgeableListModel;
+import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
@@ -85,5 +86,12 @@ public class ThighHighsModel<T extends LivingEntity> extends AgeableListModel<T>
             this.leftLeg.xRot = Mth.lerp(this.swimAmount, this.leftLeg.xRot, 0.3F * Mth.cos(f * 0.33333334F + 3.1415927F));
             this.rightLeg.xRot = Mth.lerp(this.swimAmount, this.rightLeg.xRot, 0.3F * Mth.cos(f * 0.33333334F));
         }
+    }
+
+    public void copyPropertiesFrom(HumanoidModel<T> contextModel) {
+        contextModel.copyPropertiesTo(this);
+        leftLeg.copyFrom(contextModel.leftLeg);
+        rightLeg.copyFrom(contextModel.rightLeg);
+        waist.copyFrom(contextModel.body);
     }
 }

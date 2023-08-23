@@ -7,6 +7,8 @@ public interface IPlatformHelper {
 
     AbstractRegistrate<?> getRegistrate();
 
+    boolean isModLoaded(String id);
+
     SoundEvent getBottomEquipSound();
 
 }
