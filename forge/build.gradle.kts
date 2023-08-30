@@ -6,6 +6,8 @@ val jei_version: String by extra
 val etc_forge_version: String by extra
 
 forge {
+    enableMixins()
+
     dependOn(project(":common"))
     includesMod("com.tterrag.registrate:Registrate:${registrate_forge_version}")
 }

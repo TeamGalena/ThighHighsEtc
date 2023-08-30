@@ -4,8 +4,11 @@ val mc_version: String by extra
 val registrate_fabric_version: String by extra
 val jei_version: String by extra
 val etc_fabric_version: String by extra
+val authme_version: String by extra
+val cloth_config_version: String by extra
 
 fabric {
+    enableMixins()
     dataGen()
 
     dependOn(project(":common"))
@@ -15,8 +18,10 @@ fabric {
 dependencies {
     modImplementation("maven.modrinth:etcetera:${etc_fabric_version}")
 
-    if(!env.isCI) {
+    if (!env.isCI) {
         modRuntimeOnly("mezz.jei:jei-${mc_version}-fabric:${jei_version}")
+        modRuntimeOnly("maven.modrinth:auth-me:${authme_version}")
+        modRuntimeOnly("maven.modrinth:cloth-config:${cloth_config_version}")
     }
 }
 

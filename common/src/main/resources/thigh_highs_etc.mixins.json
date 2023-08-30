@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "galena.thigh_highs_etc.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "minVersion": "0.8",
+  "refmap": "${mod_id}.refmap.json",
+  "client": [
+    "LivingEntityMixin",
+    "OptionsMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
