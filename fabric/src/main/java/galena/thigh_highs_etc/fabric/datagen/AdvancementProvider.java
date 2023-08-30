@@ -22,6 +22,7 @@ public class AdvancementProvider extends FabricAdvancementProvider {
 
     @Override
     public void generateAdvancement(Consumer<Advancement> consumer) {
+        var id = new ResourceLocation(THEConstants.MOD_ID, "equipped_thigh_highs");
         Advancement.Builder.advancement()
                 .addCriterion("critierion", InventoryChangeTrigger.TriggerInstance.hasItems(
                         ItemPredicate.Builder.item()
@@ -30,15 +31,15 @@ public class AdvancementProvider extends FabricAdvancementProvider {
                 ))
                 .display(
                         THEItems.COLORED_THIGH_HIGHS.get(DyeColor.PINK).asStack(),
-                        Component.translatable("advancements." + THEConstants.MOD_ID + ".equipped_thigh_highs.title"),
-                        Component.translatable("advancements." + THEConstants.MOD_ID + ".equipped_thigh_highs.description"),
+                        Component.translatable(id.toLanguageKey("advancement", "title")),
+                        Component.translatable(id.toLanguageKey("advancement", "description")),
                         new ResourceLocation("wool"),
                         FrameType.GOAL,
                         true,
                         false,
                         false
                 )
-                .save(consumer, "equipped_thigh_highs");
+                .save(consumer, id.toString());
     }
 
 }

@@ -15,7 +15,7 @@
     "announce_to_chat": false,
     "background": "minecraft:wool",
     "description": {
-      "translate": "advancements.thigh_highs_etc.equipped_thigh_highs.description"
+      "translate": "advancement.thigh_highs_etc.equipped_thigh_highs.description"
     },
     "frame": "goal",
     "hidden": false,
@@ -24,7 +24,7 @@
     },
     "show_toast": true,
     "title": {
-      "translate": "advancements.thigh_highs_etc.equipped_thigh_highs.title"
+      "translate": "advancement.thigh_highs_etc.equipped_thigh_highs.title"
     }
   },
   "requirements": [
