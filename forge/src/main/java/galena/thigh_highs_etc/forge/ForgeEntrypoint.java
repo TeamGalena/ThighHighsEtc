@@ -6,6 +6,8 @@ import galena.thigh_highs_etc.THECommon;
 import galena.thigh_highs_etc.THEConstants;
 import galena.thigh_highs_etc.forge.client.ForgeClientEntrypoint;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 
@@ -19,6 +21,11 @@ public class ForgeEntrypoint {
 
         //noinspection Convert2MethodRef
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ForgeClientEntrypoint.init());
+
+        MinecraftForge.EVENT_BUS.addListener((WandererTradesEvent event) -> {
+            var trades = event.getRareTrades();
+            THECommon.registerWanderingTrades(trades::add);
+        });
     }
 
 }

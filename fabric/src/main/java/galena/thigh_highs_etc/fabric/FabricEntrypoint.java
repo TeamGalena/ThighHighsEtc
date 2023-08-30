@@ -4,6 +4,7 @@ import com.tterrag.registrate.Registrate;
 import galena.thigh_highs_etc.THECommon;
 import galena.thigh_highs_etc.THEConstants;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 
 public class FabricEntrypoint implements ModInitializer {
 
@@ -13,6 +14,10 @@ public class FabricEntrypoint implements ModInitializer {
     public void onInitialize() {
         THECommon.init();
         REGISTRATE.register();
+
+        TradeOfferHelper.registerWanderingTraderOffers(1, trades ->
+            THECommon.registerWanderingTrades(trades::add)
+        );
     }
 
 }
