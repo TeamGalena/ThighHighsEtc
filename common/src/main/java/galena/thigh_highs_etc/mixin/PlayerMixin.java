@@ -14,8 +14,11 @@ public class PlayerMixin {
 
     @Inject(at = @At("HEAD"), method = "isModelPartShown(Lnet/minecraft/world/entity/player/PlayerModelPart;)Z", cancellable = true)
     public void onEquip(PlayerModelPart part, CallbackInfoReturnable<Boolean> cir) {
+        if (part != PlayerModelPart.LEFT_PANTS_LEG && part != PlayerModelPart.RIGHT_PANTS_LEG) return;
+
         @SuppressWarnings("DataFlowIssue")
         var self = (Player) (Object) this;
+
         var boots = self.getItemBySlot(EquipmentSlot.FEET);
         if (boots.is(THEItems.THIGH_HIGHS_TAG)) {
             cir.setReturnValue(false);

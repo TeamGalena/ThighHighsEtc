@@ -41,7 +41,7 @@ public class THEItems {
     public static final ItemEntry<ClothingItem> TRADER_THIGH_HIGHS = REGISTRATE.object("trader_thigh_highs")
             .item(it -> new ClothingItem(it, EquipmentSlot.FEET))
             .properties(it -> it.stacksTo(1))
-            .properties(it -> it.rarity(Rarity.COMMON))
+            .properties(it -> it.rarity(Rarity.UNCOMMON))
             .tag(THIGH_HIGHS_TAG)
             .tab(TAB)
             .register();
