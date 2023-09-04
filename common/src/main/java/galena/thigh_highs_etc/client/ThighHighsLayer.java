@@ -5,6 +5,7 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import galena.thigh_highs_etc.THEConstants;
 import galena.thigh_highs_etc.index.THEItems;
 import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -56,7 +57,13 @@ public class ThighHighsLayer<T extends LivingEntity, M extends EntityModel<T>> e
 
             VertexConsumer vertexconsumer = ItemRenderer.getArmorFoilBuffer(multiBufferSource, RenderType.armorCutoutNoCull(texture), false, stack.hasFoil());
             model.prepareMobModel(entity, f, g, h);
-            model.setupAnim(entity, f, g, h, i, j);
+
+            if (getParentModel() instanceof HumanoidModel<?> parent) {
+                model.copyPropertiesFrom((HumanoidModel<T>) parent);
+            } else {
+                model.setupAnim(entity, f, g, h, i, j);
+            }
+
             model.renderToBuffer(poseStack, vertexconsumer, i, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
         }
     }

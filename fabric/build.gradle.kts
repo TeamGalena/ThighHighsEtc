@@ -6,6 +6,7 @@ val jei_version: String by extra
 val etc_fabric_version: String by extra
 val authme_version: String by extra
 val cloth_config_version: String by extra
+val animations_fabric_version: String by extra
 
 fabric {
     enableMixins()
@@ -22,6 +23,7 @@ dependencies {
         modRuntimeOnly("mezz.jei:jei-${mc_version}-fabric:${jei_version}")
         modRuntimeOnly("maven.modrinth:auth-me:${authme_version}")
         modRuntimeOnly("maven.modrinth:cloth-config:${cloth_config_version}")
+        modRuntimeOnly("maven.modrinth:not-enough-animations:${animations_fabric_version}")
     }
 }
 

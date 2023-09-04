@@ -4,6 +4,7 @@ val mc_version: String by extra
 val registrate_forge_version: String by extra
 val jei_version: String by extra
 val etc_forge_version: String by extra
+val animations_forge_version: String by extra
 
 forge {
     enableMixins()
@@ -17,6 +18,7 @@ dependencies {
 
     if (!env.isCI) {
         modRuntimeOnly("mezz.jei:jei-${mc_version}-forge:${jei_version}")
+        modRuntimeOnly("maven.modrinth:not-enough-animations:${animations_forge_version}")
     }
 }
 
