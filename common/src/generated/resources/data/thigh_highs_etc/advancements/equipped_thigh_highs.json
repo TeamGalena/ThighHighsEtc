@@ -1,6 +1,7 @@
 {
+  "parent": "etcetera:husbandry/plant_cotton",
   "criteria": {
-    "critierion": {
+    "has_thigh_highs": {
       "conditions": {
         "items": [
           {
@@ -12,12 +13,12 @@
     }
   },
   "display": {
-    "announce_to_chat": false,
-    "background": "minecraft:wool",
+    "announce_to_chat": true,
+    "background": "minecraft:textures/block/pink_wool.png",
     "description": {
       "translate": "advancement.thigh_highs_etc.equipped_thigh_highs.description"
     },
-    "frame": "goal",
+    "frame": "task",
     "hidden": false,
     "icon": {
       "item": "thigh_highs_etc:pink_thigh_highs"
@@ -29,7 +30,7 @@
   },
   "requirements": [
     [
-      "critierion"
+      "has_thigh_highs"
     ]
   ],
   "sends_telemetry_event": true

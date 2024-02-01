@@ -1,7 +1,7 @@
 import com.possible_triangle.gradle.features.publishing.UploadExtension
 
 plugins {
-    id("com.possible-triangle.gradle") version ("0.1.0")
+    id("com.possible-triangle.gradle") version ("0.1.4")
 }
 
 subprojects {
