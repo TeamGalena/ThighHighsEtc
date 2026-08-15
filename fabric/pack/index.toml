@@ -1,0 +1,11 @@
+hash-format = "sha256"
+
+[[files]]
+file = "mods/etcetera.pw.toml"
+hash = "a3c014466700df06d292f7512c119df1b263b9419010948ff52e4fe5def51a48"
+metafile = true
+
+[[files]]
+file = "mods/not-enough-animations.pw.toml"
+hash = "eaa38d6d245d73e9c6ce9fefba8115687736027c8100ca48d1ae3306a6366b1c"
+metafile = true
