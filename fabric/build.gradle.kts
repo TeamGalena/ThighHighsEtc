@@ -1,5 +1,3 @@
-import com.possible_triangle.gradle.features.publishing.UploadExtension
-
 val mc_version: String by extra
 val registrate_fabric_version: String by extra
 val jei_version: String by extra
@@ -8,16 +6,19 @@ val authme_version: String by extra
 val cloth_config_version: String by extra
 val animations_fabric_version: String by extra
 
+plugins {
+    id("com.possible-triangle.fabric")
+}
+
 fabric {
-    enableMixins()
     dataGen()
 
     dependOn(project(":common"))
-    includesMod("com.tterrag.registrate_fabric:Registrate:${registrate_fabric_version}")
 }
 
 dependencies {
     modImplementation("maven.modrinth:etcetera:${etc_fabric_version}")
+    modInclude("com.tterrag.registrate_fabric:Registrate:${registrate_fabric_version}")
 
     if (!env.isCI) {
         modRuntimeOnly("mezz.jei:jei-${mc_version}-fabric:${jei_version}")
@@ -33,12 +34,3 @@ sourceSets.main {
     resources.srcDir(project(":common").file("src/main/resources"))
     resources.srcDir(project(":common").file("src/generated/resources"))
 }
-
-fun configureDependencies(it: UploadExtension) {
-    it.dependencies {
-        required("etcetera")
-    }
-}
-
-uploadToCurseforge(::configureDependencies)
-uploadToModrinth(::configureDependencies)

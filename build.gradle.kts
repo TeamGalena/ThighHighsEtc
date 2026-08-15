@@ -1,12 +1,12 @@
 plugins {
-    id("com.possible-triangle.gradle") version ("0.1.4")
+    id("com.possible-triangle.core")
+    id("com.possible-triangle.vanilla") apply false
+    id("com.possible-triangle.forge") apply false
+    id("com.possible-triangle.fabric") apply false
 }
 
 subprojects {
     repositories {
-        modrinthMaven()
-        curseMaven()
-
         maven {
             url = uri("https://mvn.devos.one/snapshots/")
             content {
@@ -37,9 +37,16 @@ subprojects {
         }
     }
 
-    tasks.withType<Jar> {
-        exclude("**/*.bbmodel")
+    upload {
+        maven.nexus()
+
+        forEach {
+            dependencies {
+                required("etcetera")
+            }
+        }
     }
 }
 
 enableSonarQube()
+enableSpotless()
