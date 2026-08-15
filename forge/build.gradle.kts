@@ -9,11 +9,11 @@ forge {
 }
 
 dependencies {
-    modImplementation(packs.forge.modrinth.etcetera)
+    modImplementation(pack.forge.modrinth.etcetera)
     modInclude(libs.registrate.forge)
 
     if (!env.isCI) {
         modRuntimeOnly(libs.jei.forge)
-        modRuntimeOnly(packs.forge.modrinth.not.enough.animations)
+        modRuntimeOnly(pack.forge.modrinth.not.enough.animations)
     }
 }

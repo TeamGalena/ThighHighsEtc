@@ -4,5 +4,5 @@ plugins {
 
 dependencies {
     modCompileOnly(libs.registrate.forge)
-    modCompileOnly(packs.forge.modrinth.etcetera)
+    modCompileOnly(pack.forge.modrinth.etcetera)
 }

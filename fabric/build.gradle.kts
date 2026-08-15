@@ -9,11 +9,11 @@ fabric {
 }
 
 dependencies {
-    modImplementation(packs.fabric.modrinth.etcetera)
+    modImplementation(pack.fabric.modrinth.etcetera)
     modInclude(libs.registrate.fabric)
 
     if (!env.isCI) {
         modRuntimeOnly(libs.jei.fabric)
-        modRuntimeOnly(packs.fabric.modrinth.not.enough.animations)
+        modRuntimeOnly(pack.fabric.modrinth.not.enough.animations)
     }
 }

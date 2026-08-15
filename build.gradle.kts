@@ -6,6 +6,8 @@ plugins {
 }
 
 subprojects {
+    apply(plugin = "com.possible-triangle.core")
+
     repositories {
         maven {
             url = uri("https://mvn.devos.one/snapshots/")
