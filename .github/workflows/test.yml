@@ -1,0 +1,101 @@
+# <meta>
+#    <source>@pssbletrngle/github-meta-generator</source>
+#    <version>1.0.120</version>
+#    <timestamp>2026-08-15T13:59:33.669Z</timestamp>
+#    <hash>e6eaacbda70ba2f9</hash>
+# </meta>
+
+name: Test
+
+on:
+  workflow_dispatch:
+
+  pull_request:
+    types: [opened, synchronize]
+
+  push:
+    branches:
+      - "main"
+      - "main/**"
+    paths:
+      - "**.java"
+      - "**.kt"
+      - "gradle.properties"
+      - "gradle/**"
+
+env:
+  CI: true
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          lfs: true
+          fetch-depth: 0
+
+      - uses: actions/setup-java@v5
+        with:
+          java-version: 26
+          distribution: temurin
+
+      - uses: gradle/actions/setup-gradle@v6
+        with:
+          cache-read-only: ${{ github.event_name != 'push' }}
+          dependency-graph: generate-and-submit
+
+      - name: Cache SonarQube packages
+        if: ${{ github.event_name != 'pull_request' }}
+        uses: actions/cache@v6
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+
+      - uses: PssbleTrngle/find-release@v1
+        if: ${{ github.event_name != 'pull_request' }}
+        id: draft
+        with:
+          type: draft
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Test
+        run: ./gradlew build check --stacktrace
+        env:
+          RELEASE_VERSION: ${{ steps.action.outputs.tag }}
+
+      - name: Analyze
+        if: ${{ github.event_name != 'pull_request' }}
+        run: ./gradlew sonar
+        continue-on-error: true
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+
+      - name: Publish -SNAPSHOT version
+        if: ${{ github.event_name != 'pull_request' && fromJSON(steps.draft.outputs.matched) }}
+        run: ./gradlew upload
+        continue-on-error: true
+        env:
+          NEXUS_USER: ${{ secrets.NEXUS_USER }}
+          NEXUS_TOKEN: ${{ secrets.NEXUS_TOKEN }}
+          RELEASE_VERSION: ${{ steps.draft.outputs.tag }}
+          SNAPSHOT: true
+
+      - name: Publish Release Metadata
+        if: ${{ github.event_name != 'pull_request' && fromJSON(steps.draft.outputs.matched) }}
+        uses: actions/upload-artifact@v7
+        with:
+          archive: false
+          path: build/release.json
+          retention-days: 1
