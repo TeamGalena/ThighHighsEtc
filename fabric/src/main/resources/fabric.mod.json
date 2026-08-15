@@ -4,7 +4,9 @@
   "version": "${mod_version}",
   "name": "${mod_name}",
   "description": "${mod_description}",
-  "authors": ["${mod_author}"],
+  "authors": [
+    "${mod_author}"
+  ],
   "contact": {
     "sources": "https://github.com/${repository}",
     "issues": "https://github.com/${repository}/issues"
@@ -12,8 +14,12 @@
   "license": "https://github.com/${repository}/blob/1.20.x/LICENSE.txt",
   "environment": "*",
   "entrypoints": {
-    "main": ["galena.thigh_highs_etc.fabric.FabricEntrypoint"],
-    "client": ["galena.thigh_highs_etc.fabric.client.FabricClientEntrypoint"],
+    "main": [
+      "galena.thigh_highs_etc.fabric.FabricEntrypoint"
+    ],
+    "client": [
+      "galena.thigh_highs_etc.fabric.client.FabricClientEntrypoint"
+    ],
     "fabric-datagen": [
       "galena.thigh_highs_etc.fabric.datagen.FabricDataGenerators"
     ]

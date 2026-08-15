@@ -6,15 +6,14 @@ import com.tterrag.registrate.util.nullness.NonNullBiFunction;
 import com.tterrag.registrate.util.nullness.NonNullFunction;
 import galena.thigh_highs_etc.index.THEItems;
 import galena.thigh_highs_etc.platform.Services;
+import java.util.Locale;
+import java.util.Map;
+import java.util.function.Consumer;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
-
-import java.util.Locale;
-import java.util.Map;
-import java.util.function.Consumer;
 
 public class THECommon {
 

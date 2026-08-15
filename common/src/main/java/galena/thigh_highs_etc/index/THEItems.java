@@ -6,6 +6,7 @@ import galena.thigh_highs_etc.THECommon;
 import galena.thigh_highs_etc.THEConstants;
 import galena.thigh_highs_etc.platform.Services;
 import galena.thigh_highs_etc.world.item.ClothingItem;
+import java.util.Map;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -16,8 +17,6 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
-
-import java.util.Map;
 
 public class THEItems {
 

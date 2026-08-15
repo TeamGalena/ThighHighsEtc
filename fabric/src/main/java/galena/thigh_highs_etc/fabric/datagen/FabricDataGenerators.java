@@ -1,13 +1,13 @@
 package galena.thigh_highs_etc.fabric.datagen;
 
+import static galena.thigh_highs_etc.fabric.FabricEntrypoint.REGISTRATE;
+
 import galena.thigh_highs_etc.THECommon;
 import galena.thigh_highs_etc.THEConstants;
 import io.github.fabricators_of_create.porting_lib.data.ExistingFileHelper;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.resources.ResourceLocation;
-
-import static galena.thigh_highs_etc.fabric.FabricEntrypoint.REGISTRATE;
 
 public class FabricDataGenerators implements DataGeneratorEntrypoint {
 

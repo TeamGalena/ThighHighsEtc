@@ -1,13 +1,13 @@
 package galena.thigh_highs_etc.fabric.services;
 
 import com.ninni.etcetera.registry.EtceteraItems;
-import com.tterrag.registrate.builders.ItemBuilder;
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import galena.thigh_highs_etc.index.THEItems;
 import galena.thigh_highs_etc.platform.services.IDataGenHelper;
+import java.util.function.UnaryOperator;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -15,9 +15,6 @@ import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.crafting.Ingredient;
-
-import java.util.function.UnaryOperator;
 
 public class FabricDataGenHelper implements IDataGenHelper {
 

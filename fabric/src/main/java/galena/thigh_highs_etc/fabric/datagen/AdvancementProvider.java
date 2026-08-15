@@ -2,6 +2,7 @@ package galena.thigh_highs_etc.fabric.datagen;
 
 import galena.thigh_highs_etc.THEConstants;
 import galena.thigh_highs_etc.index.THEItems;
+import java.util.function.Consumer;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 import net.minecraft.advancements.Advancement;
@@ -11,8 +12,6 @@ import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
-
-import java.util.function.Consumer;
 
 public class AdvancementProvider extends FabricAdvancementProvider {
 
