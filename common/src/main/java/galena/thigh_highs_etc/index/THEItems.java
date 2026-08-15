@@ -24,13 +24,13 @@ public class THEItems {
     private static final AbstractRegistrate<?> REGISTRATE = Services.PLATFORM.getRegistrate();
 
     private static final ResourceKey<CreativeModeTab> COLORED_TAB =
-            ResourceKey.create(Registries.CREATIVE_MODE_TAB, new ResourceLocation("colored_blocks"));
+            ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.withDefaultNamespace("colored_blocks"));
 
     private static final ResourceKey<CreativeModeTab> TAB = THECommon.ETC_LOADED
-            ? ResourceKey.create(Registries.CREATIVE_MODE_TAB, new ResourceLocation(THECommon.ETC_ID, "item_group"))
-            : ResourceKey.create(Registries.CREATIVE_MODE_TAB, new ResourceLocation("combat"));
+            ? ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(THECommon.ETC_ID, "item_group"))
+            : ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.withDefaultNamespace("combat"));
 
-    public static final TagKey<Item> THIGH_HIGHS_TAG = TagKey.create(Registries.ITEM, new ResourceLocation(THEConstants.MOD_ID, "thigh_highs"));
+    public static final TagKey<Item> THIGH_HIGHS_TAG = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(THEConstants.MOD_ID, "thigh_highs"));
     public static final Map<DyeColor, ItemEntry<ClothingItem>> COLORED_THIGH_HIGHS = THECommon.colored(REGISTRATE, "thigh_highs", (builder, color) -> builder
             .item(it -> new ClothingItem(it, EquipmentSlot.FEET))
             .properties(it -> it.stacksTo(1))

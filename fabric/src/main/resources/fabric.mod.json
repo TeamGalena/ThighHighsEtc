@@ -11,7 +11,7 @@
     "sources": "https://github.com/${repository}",
     "issues": "https://github.com/${repository}/issues"
   },
-  "license": "https://github.com/${repository}/blob/1.20.x/LICENSE.txt",
+  "license": "https://github.com/${repository}/blob/1.21.x/LICENSE.md",
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -30,8 +30,8 @@
   "depends": {
     "fabricloader": ">=0.17",
     "fabric": "*",
-    "minecraft": ">=1.20.1",
-    "java": ">=17",
-    "etcetera": ">=1.1.2-fabric"
+    "minecraft": ">=1.21.1",
+    "java": ">=21",
+    "etcetera": ">=2.2.0-fabric"
   }
 }

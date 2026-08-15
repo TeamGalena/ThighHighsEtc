@@ -1,7 +1,7 @@
 plugins {
     id("com.possible-triangle.core")
-    id("com.possible-triangle.vanilla") apply false
-    id("com.possible-triangle.forge") apply false
+    id("com.possible-triangle.common") apply false
+    id("com.possible-triangle.neoforge") apply false
     id("com.possible-triangle.fabric") apply false
 }
 
@@ -12,19 +12,12 @@ subprojects {
         nexus {
             content {
                 includeGroup("dev.galena")
+                includeGroup("com.possible-triangle")
             }
         }
 
         maven {
-            url = uri("https://mvn.devos.one/snapshots/")
-            content {
-                includeGroup("com.tterrag.registrate_fabric")
-                includeGroup("io.github.fabricators_of_create.Porting-Lib")
-            }
-        }
-
-        maven {
-            url = uri("https://maven.tterrag.com/")
+            url = uri("https://maven.ithundxr.dev/snapshots")
             content {
                 includeGroup("com.tterrag.registrate")
             }
@@ -40,6 +33,23 @@ subprojects {
         nexus("jitpack") {
             content {
                 includeGroup("com.github.llamalad7.mixinextras")
+            }
+        }
+
+        nexus {
+            content {
+                includeGroup("dev.galena")
+                includeGroup("com.possible-triangle")
+                includeGroup("com.tterrag.registrate_fabric")
+                includeGroup("io.github.fabricators_of_create.Porting-Lib")
+            }
+        }
+
+        maven {
+            url = uri("https://maven.isxander.dev/releases")
+            content {
+                includeGroup("dev.isxander")
+                includeGroupAndSubgroups("org.quiltmc")
             }
         }
     }

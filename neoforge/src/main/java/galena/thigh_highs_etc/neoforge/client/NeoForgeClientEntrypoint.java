@@ -1,22 +1,22 @@
-package galena.thigh_highs_etc.forge.client;
+package galena.thigh_highs_etc.neoforge.client;
 
 import galena.thigh_highs_etc.client.ThighHighsLayer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
-public class ForgeClientEntrypoint {
+public class NeoForgeClientEntrypoint {
 
-    public static void init() {
-        var modBus = FMLJavaModLoadingContext.get().getModEventBus();
-        modBus.addListener(ForgeClientEntrypoint::addModelLayers);
-        modBus.addListener(ForgeClientEntrypoint::registerLayersDefinitions);
+    public static void init(IEventBus modBus) {
+        modBus.addListener(NeoForgeClientEntrypoint::addModelLayers);
+        modBus.addListener(NeoForgeClientEntrypoint::registerLayersDefinitions);
     }
 
     private static <T extends LivingEntity, M extends EntityModel<T>> void addLayerTo(LivingEntityRenderer<T, M> renderer, ModelPart layer) {
@@ -32,9 +32,10 @@ public class ForgeClientEntrypoint {
             if (renderer != null) addLayerTo(renderer, layer);
         });
 
-        mc.renderers.values().forEach(it -> {
-            if (it instanceof LivingEntityRenderer<?, ?> renderer) {
-                addLayerTo(renderer, layer);
+        event.getEntityTypes().forEach(type -> {
+            var renderer = event.getRenderer(type);
+            if (renderer instanceof HumanoidMobRenderer<?, ?> humanoid) {
+                addLayerTo(humanoid, layer);
             }
         });
     }

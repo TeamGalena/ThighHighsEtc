@@ -1,4 +1,4 @@
-package galena.thigh_highs_etc.forge.services;
+package galena.thigh_highs_etc.neoforge.services;
 
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
@@ -7,7 +7,7 @@ import galena.thigh_highs_etc.platform.services.IDataGenHelper;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 
-public class ForgeDataGenHelper implements IDataGenHelper {
+public class NeoForgeDataGenHelper implements IDataGenHelper {
 
     private void NOOP() {
         throw new IllegalStateException("DataGen should only happen in fabric");

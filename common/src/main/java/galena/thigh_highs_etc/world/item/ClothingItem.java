@@ -1,7 +1,9 @@
 package galena.thigh_highs_etc.world.item;
 
-import com.ninni.etcetera.item.SweaterItem;
+import com.ninni.etcetera.item.CottonArmorItem;
 import galena.thigh_highs_etc.platform.Services;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -20,7 +22,7 @@ public class ClothingItem extends Item implements Equipable {
     public ClothingItem(Item.Properties settings, EquipmentSlot slot) {
         super(settings);
         this.slot = slot;
-        DispenserBlock.registerBehavior(this, SweaterItem.DISPENSER_BEHAVIOR);
+        DispenserBlock.registerBehavior(this, CottonArmorItem.DISPENSER_BEHAVIOR);
     }
 
     public InteractionResultHolder<ItemStack> use(Level world, Player user, InteractionHand hand) {
@@ -31,8 +33,10 @@ public class ClothingItem extends Item implements Equipable {
         return this.slot;
     }
 
-    public SoundEvent getEquipSound() {
-        return Services.PLATFORM.getBottomEquipSound();
+    public Holder<SoundEvent> getEquipSound() {
+        return BuiltInRegistries.SOUND_EVENT.wrapAsHolder(
+                Services.PLATFORM.getBottomEquipSound()
+        );
     }
 
 }

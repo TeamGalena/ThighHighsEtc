@@ -3,7 +3,6 @@ package galena.thigh_highs_etc.fabric.services;
 import com.ninni.etcetera.registry.EtceteraItems;
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
-import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import galena.thigh_highs_etc.index.THEItems;
 import galena.thigh_highs_etc.platform.services.IDataGenHelper;
@@ -15,10 +14,9 @@ import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Ingredient;
 
 public class FabricDataGenHelper implements IDataGenHelper {
-
-    private static final DataIngredient COTTON = DataIngredient.items(EtceteraItems.COTTON_FLOWER);
 
     private static <T extends Item> NonNullBiConsumer<DataGenContext<Item, T>, RegistrateRecipeProvider> craftOrDye(DyeColor color, UnaryOperator<ShapedRecipeBuilder> crafting) {
         return (context, provider) -> {
@@ -26,15 +24,15 @@ public class FabricDataGenHelper implements IDataGenHelper {
 
             if (color == DyeColor.WHITE) {
                 builder = crafting.apply(ShapedRecipeBuilder.shaped(RecipeCategory.MISC, context.get()))
-                        .define('x', COTTON);
+                        .define('x', EtceteraItems.COTTON_FLOWER.get());
             } else {
                 builder = ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, context.get())
-                        .requires(DataIngredient.tag(THEItems.THIGH_HIGHS_TAG))
+                        .requires(Ingredient.of(THEItems.THIGH_HIGHS_TAG))
                         .requires(DyeItem.byColor(color));
             }
 
             builder
-                    .unlockedBy("has_cotton", COTTON.getCritereon(provider))
+                    .unlockedBy("has_cotton", RegistrateRecipeProvider.has(EtceteraItems.COTTON_FLOWER.get()))
                     .save(provider);
         };
     }

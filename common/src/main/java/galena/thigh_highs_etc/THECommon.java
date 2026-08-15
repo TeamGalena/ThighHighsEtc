@@ -8,11 +8,12 @@ import galena.thigh_highs_etc.index.THEItems;
 import galena.thigh_highs_etc.platform.Services;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Consumer;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
 
 public class THECommon {
@@ -43,7 +44,7 @@ public class THECommon {
 
     public static void registerWanderingTrades(Consumer<VillagerTrades.ItemListing> consumer) {
         consumer.accept((entity, random) -> new MerchantOffer(
-                new ItemStack(Items.EMERALD, 22), ItemStack.EMPTY,
+                new ItemCost(Items.EMERALD, 22), Optional.empty(),
                 THEItems.TRADER_THIGH_HIGHS.asStack(),
                 1, 11, 0.05F
         ));

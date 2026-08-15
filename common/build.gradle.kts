@@ -1,8 +1,9 @@
 plugins {
-    id("com.possible-triangle.vanilla")
+    id("com.possible-triangle.common")
 }
 
 dependencies {
-    modCompileOnly(libs.registrate.forge)
-    modCompileOnly(pack.forge.modrinth.etcetera)
+    modCompileOnly(libs.neoforge.stub)
+    modCompileOnly(libs.registrate.neoforge)
+    modCompileOnly(pack.neoforge.modrinth.etcetera)
 }

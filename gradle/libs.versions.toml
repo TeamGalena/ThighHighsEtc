@@ -1,17 +1,22 @@
 [versions]
 galena-hats = "1.3.1"
-jei = "15.20.0.129"
+jei = "19.44.0.401"
+dye-depot = "1.21.1-2.1.1"
 
 [libraries]
+neoforge-stub = { group = "com.possible-triangle", name = "neoforge_stub", version = "1.0.10" }
 
-registrate-forge = { module = "com.tterrag.registrate:Registrate", version = "MC1.20-1.3.3" }
-registrate-fabric = { module = "com.tterrag.registrate_fabric:Registrate", version = "1.3.79-MC1.20.1" }
+registrate-neoforge = { module = "com.tterrag.registrate:Registrate", version = "MC1.21-1.3.0+67" }
+registrate-fabric = { module = "com.tterrag.registrate_fabric:Registrate", version = "1.3.6-MC1.21.1" }
 
-jei-forge = { group = "mezz.jei", name = "jei-1.20.1-forge", version.ref = "jei" }
-jei-fabric = { group = "mezz.jei", name = "jei-1.20.1-fabric", version.ref = "jei" }
+jei-neoforge = { group = "mezz.jei", name = "jei-1.21.1-neoforge", version.ref = "jei" }
+jei-fabric = { group = "mezz.jei", name = "jei-1.21.1-fabric", version.ref = "jei" }
 
-dye-depot-forge = { group = "com.ninni.dye_depot", name = "dye_depot", version = "1.20.1-1.2.3-forge" }
-dye-depot-fabric = { group = "com.ninni.dye_depot", name = "dye_depot", version = "1.20.1-1.2.2-fabric" }
+dye-depot-neoforge = { group = "com.ninni.dye_depot", name = "dye_depot-neoforge", version.ref = "dye-depot" }
+dye-depot-fabric = { group = "com.ninni.dye_depot", name = "dye_depot-fabric", version.ref = "dye-depot" }
 
-galena-hats-forge = { module = "dev.galena:hats-1.20.1-forge", version.ref = "galena-hats" }
-galena-hats-fabric = { module = "dev.galena:hats-1.20.1-fabric", version.ref = "galena-hats" }
+galena-hats-neoforge = { module = "dev.galena:hats-1.21.1-neoforge", version.ref = "galena-hats" }
+galena-hats-fabric = { module = "dev.galena:hats-1.21.1-fabric", version.ref = "galena-hats" }
+
+yacl-neoforge = { module = "dev.isxander:yet-another-config-lib", version = "3.6.1+1.21-neoforge" }
+yacl-fabric = { module = "dev.isxander:yet-another-config-lib", version = "3.6.1+1.21-fabric" }

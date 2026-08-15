@@ -1,7 +1,6 @@
 package galena.thigh_highs_etc.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import galena.thigh_highs_etc.THEConstants;
 import galena.thigh_highs_etc.index.THEItems;
 import net.minecraft.client.model.EntityModel;
@@ -28,7 +27,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class ThighHighsLayer<T extends LivingEntity, M extends EntityModel<T>> extends RenderLayer<T, M> {
 
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(THEConstants.MOD_ID, "clothing"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(THEConstants.MOD_ID, "clothing"), "main");
 
     private final ThighHighsModel<T> model;
 
@@ -55,7 +54,7 @@ public class ThighHighsLayer<T extends LivingEntity, M extends EntityModel<T>> e
         if (stack.is(THEItems.THIGH_HIGHS_TAG)) {
             var texture = getTexture(stack);
 
-            VertexConsumer vertexconsumer = ItemRenderer.getArmorFoilBuffer(multiBufferSource, RenderType.armorCutoutNoCull(texture), false, stack.hasFoil());
+            var vertexConsumer = ItemRenderer.getArmorFoilBuffer(multiBufferSource, RenderType.armorCutoutNoCull(texture), false);
             model.prepareMobModel(entity, f, g, h);
 
             if (getParentModel() instanceof HumanoidModel<?> parent) {
@@ -64,12 +63,12 @@ public class ThighHighsLayer<T extends LivingEntity, M extends EntityModel<T>> e
                 model.setupAnim(entity, f, g, h, i, j);
             }
 
-            model.renderToBuffer(poseStack, vertexconsumer, i, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            model.renderToBuffer(poseStack, vertexConsumer, i, OverlayTexture.NO_OVERLAY, 0xFFFFFFFF);
         }
     }
 
     public static ResourceLocation getTexture(ItemStack stack) {
         var id = BuiltInRegistries.ITEM.getKey(stack.getItem());
-        return new ResourceLocation(id.getNamespace(), "textures/models/armor/" + id.getPath() + ".png");
+        return ResourceLocation.fromNamespaceAndPath(id.getNamespace(), "textures/models/armor/" + id.getPath() + ".png");
     }
 }

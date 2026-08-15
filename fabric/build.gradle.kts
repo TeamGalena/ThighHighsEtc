@@ -15,5 +15,6 @@ dependencies {
 
     if (!env.isCI) {
         modRuntimeOnly(libs.jei.fabric)
+        modRuntimeOnly(libs.yacl.fabric)
     }
 }

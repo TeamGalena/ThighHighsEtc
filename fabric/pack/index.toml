@@ -2,10 +2,15 @@ hash-format = "sha256"
 
 [[files]]
 file = "mods/etcetera.pw.toml"
-hash = "a3c014466700df06d292f7512c119df1b263b9419010948ff52e4fe5def51a48"
+hash = "ed38c33a0a32b9b89ddab5b1188ee9c0dc4994ff9d21ecf7c675095f8707007a"
 metafile = true
 
 [[files]]
 file = "mods/not-enough-animations.pw.toml"
-hash = "eaa38d6d245d73e9c6ce9fefba8115687736027c8100ca48d1ae3306a6366b1c"
+hash = "de8e4e5701944ed7089011bce857333fde54e7d19deeb8364deab3072265d609"
+metafile = true
+
+[[files]]
+file = "mods/yacl.pw.toml"
+hash = "af20070dd9497817a83162c17b181a0a44f7213ea302d059a81c5aed02d0c877"
 metafile = true
