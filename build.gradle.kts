@@ -9,6 +9,12 @@ subprojects {
     apply(plugin = "com.possible-triangle.core")
 
     repositories {
+        nexus {
+            content {
+                includeGroup("dev.galena")
+            }
+        }
+
         maven {
             url = uri("https://mvn.devos.one/snapshots/")
             content {
@@ -31,8 +37,7 @@ subprojects {
             }
         }
 
-        maven {
-            url = uri("https://jitpack.io")
+        nexus("jitpack") {
             content {
                 includeGroup("com.github.llamalad7.mixinextras")
             }

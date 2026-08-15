@@ -11,6 +11,7 @@ forge {
 dependencies {
     modImplementation(pack.forge.modrinth.etcetera)
     modInclude(libs.registrate.forge)
+    modInclude(libs.galena.hats.forge)
 
     if (!env.isCI) {
         modRuntimeOnly(libs.jei.forge)

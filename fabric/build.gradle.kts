@@ -11,9 +11,9 @@ fabric {
 dependencies {
     modImplementation(pack.fabric.modrinth.etcetera)
     modInclude(libs.registrate.fabric)
+    modInclude(libs.galena.hats.fabric)
 
     if (!env.isCI) {
         modRuntimeOnly(libs.jei.fabric)
-        modRuntimeOnly(pack.fabric.modrinth.not.enough.animations)
     }
 }
