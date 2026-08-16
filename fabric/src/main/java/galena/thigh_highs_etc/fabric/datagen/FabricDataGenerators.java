@@ -4,6 +4,7 @@ import static galena.thigh_highs_etc.fabric.FabricEntrypoint.REGISTRATE;
 
 import galena.thigh_highs_etc.THECommon;
 import galena.thigh_highs_etc.THEConstants;
+import galena.thigh_highs_etc.index.THEItems;
 import io.github.fabricators_of_create.porting_lib.data.ExistingFileHelper;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -21,6 +22,9 @@ public class FabricDataGenerators implements DataGeneratorEntrypoint {
         REGISTRATE.addLang("advancement", advancementId, "title", "Snug and Cozy");
         REGISTRATE.addLang("advancement", advancementId, "description", "Equip a pair of cosy thigh highs");
         generator.createPack().addProvider(AdvancementProvider::new);
+
+        REGISTRATE.addLang("tag.item", THEItems.THIGH_HIGHS_TAG.location(), "Thigh Highs");
+        REGISTRATE.addLang("tag.item", THEItems.COLORED_THIGH_HIGHS_TAG.location(), "Colored Thigh Highs");
 
         REGISTRATE.setupDatagen(generator.createPack(), fileHelper);
     }
