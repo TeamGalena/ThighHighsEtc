@@ -18,5 +18,5 @@ dye-depot-fabric = { group = "com.ninni.dye_depot", name = "dye_depot-fabric", v
 galena-hats-neoforge = { module = "dev.galena:hats-1.21.1-neoforge", version.ref = "galena-hats" }
 galena-hats-fabric = { module = "dev.galena:hats-1.21.1-fabric", version.ref = "galena-hats" }
 
-yacl-neoforge = { module = "dev.isxander:yet-another-config-lib", version = "3.6.1+1.21-neoforge" }
-yacl-fabric = { module = "dev.isxander:yet-another-config-lib", version = "3.6.1+1.21-fabric" }
+yacl-neoforge = { module = "dev.isxander:yet-another-config-lib", version = "3.8.2+1.21.1-neoforge" }
+yacl-fabric = { module = "dev.isxander:yet-another-config-lib", version = "3.8.2+1.21.1-fabric" }

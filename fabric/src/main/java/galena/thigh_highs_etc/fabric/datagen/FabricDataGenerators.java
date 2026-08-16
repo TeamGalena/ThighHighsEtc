@@ -16,12 +16,13 @@ public class FabricDataGenerators implements DataGeneratorEntrypoint {
         THECommon.init();
 
         var fileHelper = ExistingFileHelper.withResourcesFromArg();
-        REGISTRATE.setupDatagen(generator.createPack(), fileHelper);
 
         var advancementId = ResourceLocation.fromNamespaceAndPath(THEConstants.MOD_ID, "equipped_thigh_highs");
         REGISTRATE.addLang("advancement", advancementId, "title", "Snug and Cozy");
         REGISTRATE.addLang("advancement", advancementId, "description", "Equip a pair of cosy thigh highs");
         generator.createPack().addProvider(AdvancementProvider::new);
+
+        REGISTRATE.setupDatagen(generator.createPack(), fileHelper);
     }
 
 }
