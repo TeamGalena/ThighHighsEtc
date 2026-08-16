@@ -5,6 +5,8 @@ import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import galena.thigh_highs_etc.THECommon;
 import galena.thigh_highs_etc.THEConstants;
 import galena.thigh_highs_etc.neoforge.client.NeoForgeClientEntrypoint;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.CreativeModeTab;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -14,7 +16,9 @@ import net.neoforged.neoforge.event.village.WandererTradesEvent;
 @Mod(THEConstants.MOD_ID)
 public class NeoForgeEntrypoint {
 
-    public static final NonNullSupplier<Registrate> REGISTRATE = NonNullSupplier.lazy(() -> Registrate.create(THEConstants.MOD_ID));
+    public static final NonNullSupplier<Registrate> REGISTRATE = NonNullSupplier.lazy(() ->
+            Registrate.create(THEConstants.MOD_ID).defaultCreativeTab((ResourceKey<CreativeModeTab>) null)
+    );
 
     public NeoForgeEntrypoint(IEventBus modBus, Dist dist) {
         THECommon.init();

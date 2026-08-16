@@ -5,10 +5,13 @@ import galena.thigh_highs_etc.THECommon;
 import galena.thigh_highs_etc.THEConstants;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.CreativeModeTab;
 
 public class FabricEntrypoint implements ModInitializer {
 
-    public static final Registrate REGISTRATE = Registrate.create(THEConstants.MOD_ID);
+    public static final Registrate REGISTRATE = Registrate.create(THEConstants.MOD_ID)
+            .defaultCreativeTab((ResourceKey<CreativeModeTab>) null);
 
     @Override
     public void onInitialize() {
@@ -16,7 +19,7 @@ public class FabricEntrypoint implements ModInitializer {
         REGISTRATE.register();
 
         TradeOfferHelper.registerWanderingTraderOffers(1, trades ->
-            THECommon.registerWanderingTrades(trades::add)
+                THECommon.registerWanderingTrades(trades::add)
         );
     }
 
