@@ -27,7 +27,7 @@ public class FabricDataGenHelper implements IDataGenHelper {
                         .define('x', EtceteraItems.COTTON_FLOWER.get());
             } else {
                 builder = ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, context.get())
-                        .requires(Ingredient.of(THEItems.THIGH_HIGHS_TAG))
+                        .requires(Ingredient.of(THEItems.COLORED_THIGH_HIGHS_TAG))
                         .requires(DyeItem.byColor(color));
             }
 

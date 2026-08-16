@@ -30,11 +30,13 @@ public class THEItems {
             ? ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(THECommon.ETC_ID, "item_group"))
             : ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.withDefaultNamespace("combat"));
 
+    public static final TagKey<Item> COLORED_THIGH_HIGHS_TAG = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(THEConstants.MOD_ID, "colored_thigh_highs"));
     public static final TagKey<Item> THIGH_HIGHS_TAG = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(THEConstants.MOD_ID, "thigh_highs"));
+
     public static final Map<DyeColor, ItemEntry<ClothingItem>> COLORED_THIGH_HIGHS = THECommon.colored(REGISTRATE, "thigh_highs", (builder, color) -> builder
             .item(it -> new ClothingItem(it, EquipmentSlot.FEET))
             .properties(it -> it.stacksTo(1))
-            .tag(THIGH_HIGHS_TAG)
+            .tag(THIGH_HIGHS_TAG, COLORED_THIGH_HIGHS_TAG)
             .tab(TAB)
             .tab(COLORED_TAB)
             .recipe(Services.DATAGEN.thighHighs(color))
